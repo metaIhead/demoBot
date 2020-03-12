@@ -42,6 +42,7 @@ def repeat_all_messages(message):
     print("______")
     print(message.chat.id)
     print("______")
+    bot.send_message(message.chat.id,message.chat.id)
     #print(message)
 
 @bot.callback_query_handler(func=lambda call: True)

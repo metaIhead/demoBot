@@ -19,5 +19,5 @@ def main_menu(message):
     key.row("К работе готов", "Заявку принял")
     key.row("Убыл на заявку", "Прибыл на заявку")
     key.row("Выполнил заявку", "Прибыл в СП")
-    key.add(telebot.types.KeyboardButton('отправить местоположение', ))
+    #key.add(telebot.types.KeyboardButton('отправить местоположение', ))
     send = bot.send_message(message.chat.id, "Соощение Диспетчера", reply_markup=key)

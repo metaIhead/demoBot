@@ -7,21 +7,11 @@ import transliterate
 from keyboards import *
 
 
-def  get_datetime():
-    a = d.datetime.today().strftime("%Y%m%d")
-    today = d.datetime.today()
-    datetime=today.strftime("%Y-%m-%d-%H-%M-%S")
-    return datetime
-
-
-user_id=[]
-chat_id=[]
-photos=[]
-location=[]
-score=[]
-start_answers=[]
-final_answers=[]
-photos_list=[]
+# def  get_datetime():
+#     a = d.datetime.today().strftime("%Y%m%d")
+#     today = d.datetime.today()
+#     datetime=today.strftime("%Y-%m-%d-%H-%M-%S")
+#     return datetime
 
 bot = telebot.TeleBot("1128488996:AAHIwMHnJoq85VhgUMncZ9295HNmhTNPNH0")
 
@@ -35,14 +25,11 @@ def handle_start_help(message):
 
 @bot.message_handler(content_types=["text"])
 def repeat_all_messages(message):
-    print("______")
-    print(message)
-    print("______")
-    print(message.chat)
-    print("______")
+
     print(message.chat.id)
     print("______")
     bot.send_message(message.chat.id,message.chat.id)
+    main_menu(message)
     #print(message)
 
 @bot.callback_query_handler(func=lambda call: True)

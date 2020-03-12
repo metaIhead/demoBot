@@ -3,7 +3,5 @@ pandas==1.0.1
 pyTelegramBotAPI==3.6.7
 requests==2.7.0
 requests-unixsocket==0.1.5
-telebot==0.0.3
 transliterate==1.10.2
 urllib3==1.22
-

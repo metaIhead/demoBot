@@ -35,8 +35,13 @@ def handle_start_help(message):
 
 @bot.message_handler(content_types=["text"])
 def repeat_all_messages(message):
-    print(message.text)
-    main_menu(message)
+    print("______")
+    print(message)
+    print("______")
+    print(message.chat)
+    print("______")
+    print(message.chat.id)
+    print("______")
     #print(message)
 
 @bot.callback_query_handler(func=lambda call: True)

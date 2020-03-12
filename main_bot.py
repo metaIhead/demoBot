@@ -36,7 +36,7 @@ def handle_start_help(message):
 
 @bot.message_handler(content_types=["text"])
 def repeat_all_messages(message):
-    pass
+    print("text")
     #print(message)
 
 @bot.callback_query_handler(func=lambda call: True)

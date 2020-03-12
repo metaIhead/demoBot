@@ -3,10 +3,9 @@ import telebot
 import json
 import requests
 import datetime as d
-import os
 import transliterate
 from keyboards import *
-import sqlite3
+
 
 def  get_datetime():
     a = d.datetime.today().strftime("%Y%m%d")

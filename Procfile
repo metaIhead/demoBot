@@ -1,1 +1,1 @@
-web: python try.py
+web: gunicorn try:app

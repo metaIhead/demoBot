@@ -3,7 +3,7 @@ app = Flask(__name__)
 
 @app.route("/1128488996:AAHIwMHnJoq85VhgUMncZ9295HNmhTNPNH0", methods=['POST'])
 def hello():
-    print(request.get_json)
+    print(request.json)
     return "Hello World!"
 
 

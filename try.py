@@ -1,19 +1,33 @@
 from flask import Flask ,request
+import telebot
+import json
+import requests
+import datetime as d
+import transliterate
+from keyboards import *
+
+
+token="1128488996:AAHIwMHnJoq85VhgUMncZ9295HNmhTNPNH0"
 app = Flask(__name__)
 
-@app.route("/1128488996:AAHIwMHnJoq85VhgUMncZ9295HNmhTNPNH0", methods=['POST'])
-def hello():
-    print(request.json)
-    return "Hello World!"
-
-
-# if __name__ == "__main__":
-#     app.run(debug=True)
+@app.route("/"+ token, methods=['POST'])
+def get_response():
+    response=request.json
 
 
 
+bot = telebot.TeleBot(token)
 
-# https://api.telegram.org/bot1128488996:AAHIwMHnJoq85VhgUMncZ9295HNmhTNPNH0/setWebhook?url=https://bot-key.herokuapp.com/1128488996:AAHIwMHnJoq85VhgUMncZ9295HNmhTNPNH0
+#Обработчик команд '/start' и '/help'.
+@bot.message_handler(commands=['start'])
+def handle_start_help(message):
+    print("start")
 
 
-# https://api.telegram.org/bot1128488996:AAHIwMHnJoq85VhgUMncZ9295HNmhTNPNH0/deleteWebhook
+@bot.message_handler(content_types=["text"])
+def repeat_all_messages(message):
+
+    print(message.chat.id)
+    print("______")
+    bot.send_message(message.chat.id,message.chat.id)
+    main_menu(message)

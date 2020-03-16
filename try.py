@@ -7,7 +7,7 @@ import transliterate
 from keyboards import *
 
 
-token="1128488996:AAHIwMHnJoq85VhgUMncZ9295HNmhTNPNH0"
+#token="1128488996:AAHIwMHnJoq85VhgUMncZ9295HNmhTNPNH0"
 app = Flask(__name__)
 
 @app.route("/1128488996:AAHIwMHnJoq85VhgUMncZ9295HNmhTNPNH0", methods=['POST'])
@@ -23,11 +23,11 @@ def get_response():
 # def handle_start_help(message):
 #     print("start")
 
-
-@bot.message_handler(content_types=["text"])
-def repeat_all_messages(message):
-
-    print(message.chat.id)
-    print("______")
-    bot.send_message(message.chat.id,message.chat.id)
-    main_menu(message)
+#
+# @bot.message_handler(content_types=["text"])
+# def repeat_all_messages(message):
+#
+#     print(message.chat.id)
+#     print("______")
+#     bot.send_message(message.chat.id,message.chat.id)
+#     main_menu(message)

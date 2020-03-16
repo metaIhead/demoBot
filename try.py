@@ -19,10 +19,9 @@ app = Flask(__name__)
 bot = telebot.TeleBot(token)
 
 def handler(message):
-    print(message)
-    # print("______")
-    # bot.send_message(message.chat.id,message.chat.id)
-    # main_menu(message)
+    print(len(message))
+    bot.send_message(message.chat.id,message.chat.id)
+    main_menu(message)
 
 @app.route("/"+token, methods=['POST'])
 def get_response():

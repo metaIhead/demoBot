@@ -28,5 +28,6 @@ def handler(message):
 def get_response():
     response = request.json
     message = response
-    handler(message)
+    print(message)
+    #handler(message)
     return "Hello World!"

@@ -19,8 +19,8 @@ app = Flask(__name__)
 bot = telebot.TeleBot(token)
 
 def handler(message):
-    print(len(message))
-    bot.send_message(message.chat.id,message.chat.id)
+    print(message['message']['chat'][0])
+    #bot.send_message(message.chat.id,message.chat.id)
     main_menu(message)
 
 @app.route("/"+token, methods=['POST'])

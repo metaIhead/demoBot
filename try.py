@@ -14,7 +14,7 @@ app = Flask(__name__)
 def get_response():
     response=request.json
 
-    return "Hello World!",response
+    return "Hello World!"
 
 print(response)
 bot = telebot.TeleBot(token)

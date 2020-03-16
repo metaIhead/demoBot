@@ -10,7 +10,7 @@ from keyboards import *
 token="1128488996:AAHIwMHnJoq85VhgUMncZ9295HNmhTNPNH0"
 app = Flask(__name__)
 
-@app.route("/"+ token, methods=['POST'])
+@app.route("/1128488996:AAHIwMHnJoq85VhgUMncZ9295HNmhTNPNH0", methods=['POST'])
 def get_response():
     response=request.json
 

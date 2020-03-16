@@ -16,12 +16,12 @@ def get_response():
 
 
 
-bot = telebot.TeleBot(token)
-
-#Обработчик команд '/start' и '/help'.
-@bot.message_handler(commands=['start'])
-def handle_start_help(message):
-    print("start")
+# bot = telebot.TeleBot(token)
+#
+# #Обработчик команд '/start' и '/help'.
+# @bot.message_handler(commands=['start'])
+# def handle_start_help(message):
+#     print("start")
 
 
 @bot.message_handler(content_types=["text"])

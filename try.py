@@ -14,11 +14,11 @@ app = Flask(__name__)
 def get_response():
     response=request.json
     print(response)
-    return "Hello World!"
+    return "Hello World!",response
 
 
 bot = telebot.TeleBot(token)
-
+message=response
 #Обработчик команд '/start' и '/help'.
 @bot.message_handler(commands=['start'])
 def handle_start_help(message):

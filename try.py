@@ -13,12 +13,12 @@ app = Flask(__name__)
 @app.route("/"+token, methods=['POST'])
 def get_response():
     response=request.json
-    print(response)
+
     return "Hello World!",response
 
-
+print(response)
 bot = telebot.TeleBot(token)
-message=response
+# message=response
 #Обработчик команд '/start' и '/help'.
 @bot.message_handler(commands=['start'])
 def handle_start_help(message):

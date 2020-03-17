@@ -13,7 +13,7 @@ def handler(message):
     main_menu(message)
 
 
-token="1128488996:AAHIwMHnJoq85VhgUMncZ9295HNmhTNPNH0"
+token=""
 app = Flask(__name__)
 
 bot = telebot.TeleBot(token)

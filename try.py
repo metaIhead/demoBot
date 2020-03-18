@@ -6,25 +6,20 @@ import datetime as d
 import transliterate
 from keyboards import *
 
-def handler(message):
-    print(message.chat.id)
-    print("______")
-    bot.send_message(message.chat.id,message.chat.id)
-    main_menu(message)
-
-
 token=""
 app = Flask(__name__)
 
 bot = telebot.TeleBot(token)
 
+
+@bot.message_handler(func=lambda message: True, content_types=['text'])
 def handler(message):
-    print(message['message']['chat'][0])
+    print(message)
     #bot.send_message(message.chat.id,message.chat.id)
-    main_menu(message)
+
 
 @app.route("/"+token, methods=['POST'])
 def get_response():
     message = request.json
-    handler(message)
+    bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
     return "Hello World!"

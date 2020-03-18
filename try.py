@@ -10,7 +10,7 @@ bot = telebot.TeleBot(token)
 def bot_handler():
     bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
     print("=========================================")
-    return flask.render_template('index.html')
+    return 'NOT WORD'
 
 @app.route("/", methods=['GET'])
 def get_response():
@@ -25,5 +25,4 @@ def main_menu(message):
     key.row("К работе готов", "Заявку принял")
     key.row("Убыл на заявку", "Прибыл на заявку")
     key.row("Выполнил заявку", "Прибыл в СП")
-    #key.add(telebot.types.KeyboardButton('отправить местоположение', ))
     send = bot.send_message(message.chat.id, "Соощение Диспетчера", reply_markup=key)

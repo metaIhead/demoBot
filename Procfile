@@ -1,1 +1,1 @@
-web:  gunicorn webh:server
+web:  gunicorn try:app

@@ -1,6 +1,6 @@
 from flask import *
 import telebot
-from keyboards import *
+
 
 token="1128488996:AAHIwMHnJoq85VhgUMncZ9295HNmhTNPNH0"
 app = Flask(__name__)

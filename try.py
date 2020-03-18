@@ -14,7 +14,7 @@ def bot_handler():
 
 @app.route("/", methods=['GET'])
 def get_response():
-    return flask.render_template('index.html')
+    return render_template('index.html')
 
 @bot.message_handler(func=lambda message: True, content_types=['text'])
 def handler(message):

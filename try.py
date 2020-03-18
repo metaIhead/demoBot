@@ -8,7 +8,6 @@ from keyboards import *
 
 token="1128488996:AAHIwMHnJoq85VhgUMncZ9295HNmhTNPNH0"
 app = Flask(__name__)
-
 bot = telebot.TeleBot(token)
 
 
@@ -18,6 +17,10 @@ def handler(message):
     print("___________________________________________________________________________________")
     #bot.send_message(message.chat.id,message.chat.id)
 
+
+@app.route("/", methods=['POST','GET'])
+def get_response():
+    return "200"
 
 @app.route("/"+token, methods=['POST'])
 def get_response():

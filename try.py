@@ -18,14 +18,14 @@ app = Flask(__name__)
 #     #bot.send_message(message.chat.id,message.chat.id)
 
 
-@app.route("/", methods=['POST','GET'])
-def get_response():
-    print("_______________________________________________")
-    return "Hello World!"
-
-# @app.route("/"+token, methods=['POST'])
+# @app.route("/", methods=['POST','GET'])
 # def get_response():
 #     print("_______________________________________________")
-#     message = request.json
-#     bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
 #     return "Hello World!"
+
+@app.route("/"+token, methods=['POST','GET'])
+def get_response():
+    print("=========================================")
+    #message = request.json
+    #bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
+    return "Hello World!"

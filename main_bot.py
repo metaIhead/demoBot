@@ -5,7 +5,7 @@ import requests
 from keyboards import *
 
 
-# https://api.telegram.org/bot1128488996:AAHIwMHnJoq85VhgUMncZ9295HNmhTNPNH0/setWebhook?url=https://bot-key.herokuapp.com
+# https://api.telegram.org/bot1128488996:AAHIwMHnJoq85VhgUMncZ9295HNmhTNPNH0/setWebhook?url=https://bot-key.herokuapp.com/1128488996:AAHIwMHnJoq85VhgUMncZ9295HNmhTNPNH0
 
 URL='https://api.telegram.org/bot/getUpdates'
 r = requests.get(url = URL)

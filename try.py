@@ -28,4 +28,4 @@ def get_response():
     print("=========================================")
     #message = request.json
     #bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
-    return "<h1>Hello World!</h1>"
+    return 'Hello World!'

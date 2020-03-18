@@ -8,28 +8,22 @@ from keyboards import *
 
 token="1128488996:AAHIwMHnJoq85VhgUMncZ9295HNmhTNPNH0"
 app = Flask(__name__)
-# bot = telebot.TeleBot(token)
+bot = telebot.TeleBot(token)
 
+@app.route("/"+token, methods=['POST'])
+def get_response():
+    bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
+    print("=========================================")
+    return flask.render_template('index.html')
 
 @bot.message_handler(func=lambda message: True, content_types=['text'])
 def handler(message):
-    print(message)
     main_menu(message)
-    #bot.send_message(message.chat.id,message.chat.id)
 
-
-# @app.route("/", methods=['POST','GET'])
-# def get_response():
-#     print("_______________________________________________")
-#     return "Hello World!"
-
-@app.route("/"+token, methods=['POST','GET'])
-def get_response():
-    if request.method == 'POST':
-        bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
-        print("=========================================")
-    else:
-        print("+++++++++++++++++++++++++++++++++++++++")
-    #message = request.json
-
-    return 'Hello World!'
+def main_menu(message):
+    key = telebot.types.ReplyKeyboardMarkup(True,False)
+    key.row("К работе готов", "Заявку принял")
+    key.row("Убыл на заявку", "Прибыл на заявку")
+    key.row("Выполнил заявку", "Прибыл в СП")
+    #key.add(telebot.types.KeyboardButton('отправить местоположение', ))
+    send = bot.send_message(message.chat.id, "Соощение Диспетчера", reply_markup=key)

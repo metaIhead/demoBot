@@ -1,0 +1,62 @@
+<html>
+  <head>
+    <title>Отправитель</title>
+  </head>
+  <body>
+    <div class="main">
+      <div>Описание заявки</div>
+      <input type="text" name="text"></input>
+      <br>
+      <div>chat_id</div>
+      <input type="text" name="chat_id"></input>
+      <br>
+      <input type="submit" value="Отправить"></input>
+    </div>
+    <script>
+
+
+    //	Данные для передачи на сервер например	id товаров и его количество
+    let id_product = 321;
+    let qty_product = 2;
+
+     // принцип	тот же самый что и у обычного POST	запроса
+    const request = new XMLHttpRequest();
+    const url = "https://api.telegram.org/bot1098656388:AAGuCIRD0Yw7fbbgVi8CeBp7FQovGxYTGzE/sendMessage";
+
+    const params = {
+      "chat_id": 208428842,
+      "reply_markup": {
+      "inline_keyboard": [[
+          {
+          "text":"Принять заявку",
+          "callback_data":"data"
+        }
+      ]]
+      },
+      "text": "Описание заявки"
+    };
+
+
+    request.open("POST", url, true);
+    request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+    request.addEventListener("readystatechange", () => {
+
+        if (request.readyState === 4 && request.status === 200) {
+            let obj = request.response;
+
+    	console.log(obj);
+    	// Здесь мы можем обращаться к свойству объекта и получать	его значение
+    	console.log(obj.id_product);
+    	console.log(obj.qty_product);
+    	}
+    });
+
+    request.send(params);
+
+
+
+
+    </script>
+  </body>
+</html>

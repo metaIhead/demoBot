@@ -23,7 +23,7 @@ app = Flask(__name__)
 #     print("_______________________________________________")
 #     return "Hello World!"
 
-@app.route("/"+token, methods=['POST'])
+@app.route("/"+token, methods=['POST','GET'])
 def get_response():
     print("=========================================")
     #message = request.json

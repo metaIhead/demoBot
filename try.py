@@ -11,11 +11,11 @@ app = Flask(__name__)
 # bot = telebot.TeleBot(token)
 
 
-# @bot.message_handler(func=lambda message: True, content_types=['text'])
-# def handler(message):
-#     print(message)
-#     print("++++++++++++++++++++++++++++++++++++++++++++++")
-#     #bot.send_message(message.chat.id,message.chat.id)
+@bot.message_handler(func=lambda message: True, content_types=['text'])
+def handler(message):
+    print(message)
+    print("++++++++++++++++++++++++++++++++++++++++++++++")
+    #bot.send_message(message.chat.id,message.chat.id)
 
 
 # @app.route("/", methods=['POST','GET'])

@@ -1,9 +1,6 @@
-from flask import Flask ,request, flask
+i
+from flask import *
 import telebot
-import json
-import requests
-import datetime as d
-import transliterate
 from keyboards import *
 
 token="1128488996:AAHIwMHnJoq85VhgUMncZ9295HNmhTNPNH0"
@@ -11,9 +8,13 @@ app = Flask(__name__)
 bot = telebot.TeleBot(token)
 
 @app.route("/"+token, methods=['POST'])
-def get_response():
+def bot_handler():
     bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
     print("=========================================")
+    return flask.render_template('index.html')
+
+@app.route("/", methods=['GET'])
+def get_response():
     return flask.render_template('index.html')
 
 @bot.message_handler(func=lambda message: True, content_types=['text'])

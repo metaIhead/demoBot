@@ -14,7 +14,7 @@ app = Flask(__name__)
 @bot.message_handler(func=lambda message: True, content_types=['text'])
 def handler(message):
     print(message)
-    print("++++++++++++++++++++++++++++++++++++++++++++++")
+    main_menu(message)
     #bot.send_message(message.chat.id,message.chat.id)
 
 

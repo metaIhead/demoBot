@@ -1,7 +1,7 @@
 import telebot
 
 
-bot = telebot.TeleBot("")
+bot = telebot.TeleBot("1128488996:AAHIwMHnJoq85VhgUMncZ9295HNmhTNPNH0")
 
 def inline(message):
     print("IN")

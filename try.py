@@ -26,7 +26,9 @@ app = Flask(__name__)
 @app.route("/"+token, methods=['POST','GET'])
 def get_response():
     if request.method == 'POST':
-        print("=========================================")    
+        print("=========================================")
+    else:
+        print("+++++++++++++++++++++++++++++++++++++++")
     #message = request.json
     #bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
     return 'Hello World!'

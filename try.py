@@ -1,4 +1,3 @@
-i
 from flask import *
 import telebot
 from keyboards import *

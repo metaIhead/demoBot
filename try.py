@@ -14,16 +14,17 @@ bot = telebot.TeleBot(token)
 @bot.message_handler(func=lambda message: True, content_types=['text'])
 def handler(message):
     print(message)
-    print("___________________________________________________________________________________")
+    print("++++++++++++++++++++++++++++++++++++++++++++++")
     #bot.send_message(message.chat.id,message.chat.id)
 
 
-@app.route("/", methods=['POST','GET'])
-def get_response():
-    return "200"
+# @app.route("/", methods=['POST','GET'])
+# def get_response():
+#     return "200"
 
 @app.route("/"+token, methods=['POST'])
 def get_response():
+    print("_______________________________________________")
     message = request.json
     bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
     return "Hello World!"

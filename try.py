@@ -16,14 +16,16 @@ def bot_handler():
 
 @app.route("/", methods=['GET'])
 def get_response():
-    return render_template('table.html',{'info_status': interactionDB.read_all_users() })
+    return render_template('table.html',load={'info_status': interactionDB.read_all_users() })
 
 @bot.message_handler(func=lambda message: True, content_types=['text'])
 def main_handler(message):
     main_menu(message)
     user_id=message.chat.id
     text=message.text
-    interactionDB.insert_fitter(user_id)
+    name=str(message.from_user.first_name)+" "+str(message.from_user.last_name)
+
+    interactionDB.insert_fitter(user_id, name)
     interactionDB.set_status(user_id, text)
 
 def main_menu(message):

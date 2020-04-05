@@ -1,10 +1,11 @@
 import sqlite3
 
-def insert_fitter(user_id):
+def insert_fitter(user_id,name):
     conn = sqlite3.connect("datab.db")
     cursor = conn.cursor()
     try:
-        sql = "INSERT INTO fitters (user_id)  VALUES ("+str(user_id)+")"
+        sql = "INSERT INTO fitters (user_id, name)  VALUES ("+str(user_id)+","+name+")"
+        print(sql)
         cursor.execute(sql)
         conn.commit()
     except sqlite3.Error as e:
@@ -29,7 +30,6 @@ def read_status(user_id):
     conn.commit()
     return cursor.fetchall()
     conn.close()
-
 
 def read_all_users():
     conn = sqlite3.connect("datab.db")

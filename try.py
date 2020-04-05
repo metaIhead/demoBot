@@ -1,6 +1,7 @@
 from flask import *
 import telebot
 import os
+import interactionDB
 
 
 token = os.getenv("TOKEN")

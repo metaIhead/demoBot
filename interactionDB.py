@@ -20,7 +20,3 @@ def set_status(user_id,status):
     cursor.execute(sql)
     conn.commit()
     conn.close()
-
-
-# insert_fitter(123441)
-# set_status(123441,"К работе готов")

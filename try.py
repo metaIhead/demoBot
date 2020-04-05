@@ -12,7 +12,7 @@ def bot_handler():
     print("=========================================")
     return 'NOT WORD'
 
-@app.route("/", methods=['GET'])
+@app.route("/"+token, methods=['POST'])
 def get_response():
     return render_template('index.html')
 

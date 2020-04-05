@@ -16,7 +16,7 @@ def bot_handler():
 
 @app.route("/", methods=['GET'])
 def get_response():
-    return render_template('table.html',{'info_status': interactionDB.read_all_users())
+    return render_template('table.html',{'info_status': interactionDB.read_all_users() })
 
 @bot.message_handler(func=lambda message: True, content_types=['text'])
 def main_handler(message):

@@ -1,5 +1,6 @@
 from flask import *
 import telebot
+import os
 
 
 token = os.getenv("TOKEN")

@@ -4,13 +4,20 @@ def insert_fitter(user_id,name):
     conn = sqlite3.connect("datab.db")
     cursor = conn.cursor()
     try:
-        sql = "INSERT INTO fitters (user_id, name)  VALUES ("+str(user_id)+","+name+")"
-        print(sql)
+        sql = "INSERT INTO fitters (user_id)  VALUES ("+str(user_id)+")"
+        cursor.execute(sql)
+        conn.commit()
+
+
+        sql = "UPDATE fitters SET name = ('{}')".format(name)+" WHERE user_id = "+str(user_id)
         cursor.execute(sql)
         conn.commit()
     except sqlite3.Error as e:
         error_list=str(e).split(" ")
     conn.close()
+
+
+insert_fitter(0,"kek")
 
 def set_status(user_id,status):
     conn = sqlite3.connect("datab.db")
@@ -52,7 +59,7 @@ def read_all_users():
         list.append(obj)
     return list
 
-print(read_all_users(),type(read_all_users()))
+# print(read_all_users(),type(read_all_users()))
 
 
 # user_id=33477

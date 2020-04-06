@@ -11,7 +11,7 @@
       <br>
       <select>
       {%for index in load.info_status%}
-        <option>{{index.id}}</option>
+        <option>{{index.name}}</option>
         {%endfor%}
       </select>
 
@@ -22,7 +22,7 @@
     <table>
     <tr><th>ФИО</th><th>Cтатус</th></tr>
     {%for index in load.info_status%}
-      <tr><td>{{index.id}}</td><td>{{index.status}}</td></tr>
+      <tr><td>{{index.name}}</td><td>{{index.status}}</td></tr>
       {%endfor%}
     </table>
 

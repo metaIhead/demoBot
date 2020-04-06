@@ -31,11 +31,12 @@ def read_status(user_id):
     return cursor.fetchall()
     conn.close()
 
+
 def read_all_users():
     conn = sqlite3.connect("datab.db")
     cursor = conn.cursor()
 
-    sql = "SELECT user_id, status  FROM fitters"
+    sql = "SELECT user_id, status, name FROM fitters"
     cursor.execute(sql)
     conn.commit()
     data=cursor.fetchall()
@@ -46,9 +47,12 @@ def read_all_users():
         obj={
             'id': index[0],
             'status': index[1],
+            'name': index[2]
         }
         list.append(obj)
     return list
+
+print(read_all_users(),type(read_all_users()))
 
 
 # user_id=33477

@@ -17,7 +17,7 @@ def bot_handler():
 @app.route("/send_message", methods=['POST'])
 def send_handl():
     request_data=request.json
-    bot.send_message(request_data['id'], "Статус принят, "+request_data['text'])
+    bot.send_message(request_data['id'], "Новая заявка\n"+request_data['text'])
     return 'NOT WORD'
 
 @app.route("/", methods=['GET'])

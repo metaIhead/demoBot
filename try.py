@@ -15,7 +15,7 @@ def bot_handler():
     return 'NOT WORD'
 
 @app.route("/send_message", methods=['POST'])
-def bot_handler():
+def send_handler():
     bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
     request_data=request.json
     bot.send_message(request_data['id'], "Статус принят, "+request_data['text'])

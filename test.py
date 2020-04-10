@@ -6,7 +6,8 @@ app = Flask(__name__)
 
 @app.route("/send_message", methods=['POST'])
 def bot_handler():
-    print(request.json)
+    request_data = request.json 
+    print(request_data['id'], "Статус принят, "+request_data['text'])
     return 'NOT WORD'
 
 @app.route("/", methods=['GET'])

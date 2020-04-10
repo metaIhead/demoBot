@@ -8,8 +8,14 @@ token = os.getenv("TOKEN")
 app = Flask(__name__)
 bot = telebot.TeleBot(token)
 
+@app.route("/"+token, methods=['POST'])
+def bot_handler():
+    bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
+    print("=========================================")
+    return 'NOT WORD'
+
 @app.route("/send_message", methods=['POST'])
-def send_handler():
+def send_handl():
     request_data=request.json
     bot.send_message(request_data['id'], "Статус принят, "+request_data['text'])
     return 'NOT WORD'

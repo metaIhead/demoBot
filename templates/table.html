@@ -5,7 +5,10 @@
     <title></title>
   </head>
   <body>
-    <div class="main">
+
+
+<div class = "main" style="display  : flex">
+    <div class = "left">
       <div>Описание заявки</div>
       <input type="text" name="text" id = "text"></input>
       <br>
@@ -17,13 +20,16 @@
       <br>
       <input type="submit" value="Отправить"id="send"></input>
     </div>
-
+    <div class = "right">
     <table>
-    <tr><th>ФИО</th><th>Cтатус</th></tr>
-    {%for index in load.info_status%}
-      <tr><td>{{index.name}}</td><td>{{index.status}}</td></tr>
+      <tr><th>ФИО</th><th>Cтатус</th></tr>
+      {%for index in load.info_status%}
+        <tr><td>{{index.name}}</td><td>{{index.status}}</td></tr>
       {%endfor%}
     </table>
+  </div>
+</div>
+
 
     <script>
       let send_btn = document.querySelector('#send')

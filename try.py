@@ -14,6 +14,13 @@ def bot_handler():
     print("=========================================")
     return 'NOT WORD'
 
+@app.route("/send_message", methods=['POST'])
+def bot_handler():
+    bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
+    request_data=request.json
+    bot.send_message(request_data['id'], "Статус принят, "+request_data['text'])
+    return 'NOT WORD'
+
 @app.route("/", methods=['GET'])
 def get_response():
     return render_template('table.html',load={'info_status': interactionDB.read_all_users() })

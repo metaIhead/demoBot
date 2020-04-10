@@ -9,14 +9,13 @@
       <div>Описание заявки</div>
       <input type="text" name="text" id = "text"></input>
       <br>
-      <select>
+      <select id="select">
       {%for index in load.info_status%}
-        <option>{{index.name}}</option>
+        <option value='{{index.id}}'>{{index.name}}</option>
         {%endfor%}
       </select>
-
       <br>
-      <input type="submit" value="Отправить"id="submit_button"></input>
+      <input type="submit" value="Отправить"id="send"></input>
     </div>
 
     <table>
@@ -25,6 +24,24 @@
       <tr><td>{{index.name}}</td><td>{{index.status}}</td></tr>
       {%endfor%}
     </table>
+
+    <script>
+      let send_btn = document.querySelector('#send')
+      send_btn.addEventListener('click',function(){
+          let selector = document.querySelector('#select')
+          console.log(selector.value)
+
+          let url = '/send_message';
+          let request = new XMLHttpRequest();
+          request.open('POST',url,true);
+
+          let data = {"id":selector.value,"text":document.querySelector('#text').value}
+          request.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+          request.send(JSON.stringify(data))
+      });
+
+    </script>
+
 
   </body>
 </html>

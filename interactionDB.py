@@ -16,9 +16,6 @@ def insert_fitter(user_id,name):
         error_list=str(e).split(" ")
     conn.close()
 
-
-insert_fitter(0,"kek")
-
 def set_status(user_id,status):
     conn = sqlite3.connect("datab.db")
     cursor = conn.cursor()
@@ -58,11 +55,3 @@ def read_all_users():
         }
         list.append(obj)
     return list
-
-# print(read_all_users(),type(read_all_users()))
-
-
-# user_id=33477
-# insert_fitter(user_id)
-# set_status(user_id,"Заявку принял")
-# print(read_status(user_id))
